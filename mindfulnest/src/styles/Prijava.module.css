@@ -1,0 +1,45 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    color: #4A7856;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    width: 85%;
+    margin: 30px 25px;
+    padding-bottom: 20px;
+    font-size: 16px;
+    align-self: flex-start;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+}
+
+.button {
+    background: #84BE8F;
+    border: none;
+    width: 85%;
+    height: 50px;
+    border-radius: 50px;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.span, .a {
+    color: #4A7856;
+    font-size: 16px;
+    padding: 25px;
+}
+
+.a {
+    padding: 25px 0;
+    font-weight: 700;
+    text-decoration: underline;
+}
