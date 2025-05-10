@@ -16,8 +16,7 @@
     align-self: flex-start;
 }
 
-input[type="email"]:focus,
-input[type="password"]:focus {
+.input:focus {
   outline: none;
 }
 
