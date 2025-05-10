@@ -1,4 +1,4 @@
-import { AuthContainer } from "../components/AuthContainer";
+import { AuthContainer } from "../components/AuthContainer.jsx";
 import styles from "../styles/Prijava.module.css"
 
 export function Prijava() {

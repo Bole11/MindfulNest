@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
-import { Prijava } from "./pages/Prijava"
+import { Prijava } from "./pages/Prijava.jsx"
 
 function App() {
  
