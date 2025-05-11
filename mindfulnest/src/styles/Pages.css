@@ -1,10 +1,10 @@
-.form {
+.formPages {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.input {
+.inputPages {
     color: #4A7856;
     background: #fff;
     border: none;
@@ -16,11 +16,11 @@
     align-self: flex-start;
 }
 
-.input:focus {
+.inputPages:focus {
   outline: none;
 }
 
-.button {
+.buttonPages {
     background: #84BE8F;
     border: none;
     width: 85%;
@@ -31,14 +31,23 @@
     margin-bottom: 30px;
 }
 
-.span, .a {
+.spanPages, .aPages {
     color: #4A7856;
     font-size: 16px;
     padding: 25px;
 }
 
-.a {
+.aPages {
     padding: 25px 0;
     font-weight: 700;
     text-decoration: underline;
 }
+
+.pPages {
+    color: #999999;
+    font-size: 20px;
+    width: 300px;
+    height: 75px;
+    padding: 35px;
+}
+

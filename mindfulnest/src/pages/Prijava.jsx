@@ -1,5 +1,5 @@
 import { AuthContainer } from "../components/AuthContainer.jsx";
-import styles from "../styles/Prijava.module.css";
+import "../styles/Pages.css";
 import { PasswordInput } from "../components/PasswordInput.jsx";
 
 import { Link } from "react-router-dom";
@@ -23,25 +23,25 @@ export function Prijava() {
 
     return (
         <AuthContainer title={"Prijava"}>
-            <form className={styles.form}>
+            <form className={"formPages"}>
                 <input 
                 type="email" 
-                className={styles.input} 
+                className={"inputPages"} 
                 placeholder="Unesite svoju e-mail adresu"
                 onChange={handleInputChange}
                 />
 
                 <PasswordInput 
                 placeholder="Unesite svoju lozinku" 
-                className={styles.input}
+                className={"inputPages"}
                 onChange={handleInputChange}
                 />
 
-                <button className={styles.button}>Prijavi se</button>
+                <button className={"buttonPages"}>Prijavi se</button>
 
-                <Link to={"/zaboravljenaLozinka"} className={styles.a}>Zaboravljena lozinka</Link>
+                <Link to={"/zaboravljenalozinka"} className={"aPages"}>Zaboravljena lozinka</Link>
 
-                <span className={styles.span}>Nemaš nalog? <Link to={"/registracija"} className={styles.a}>Registruj se</Link></span>
+                <span className={"spanPages"}>Nemaš nalog? <Link to={"/registracija"} className={"aPages"}>Registruj se</Link></span>
             </form>
         </AuthContainer>
     )

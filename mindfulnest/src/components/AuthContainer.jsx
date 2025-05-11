@@ -15,7 +15,7 @@ export function AuthContainer({ title, children }) {
                 </div>
                 <div className="auth-content">
                     <div className="auth-content-title">
-                        <h2>{title}</h2>
+                        <h2 className="auth-title">{title}</h2>
                         <img src={upperLeaf} alt="leaf" className="upperLeaf"/>
                     </div>
                     {children}
