@@ -23,4 +23,12 @@
 
 html {
 	font-size: 62,5%; /* to set 10px as default */
+<<<<<<< Updated upstream
+=======
+}
+
+.error {
+  color: #F11325;
+  font-size: 12px;
+>>>>>>> Stashed changes
 }

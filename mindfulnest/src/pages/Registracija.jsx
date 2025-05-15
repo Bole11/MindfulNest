@@ -1,11 +1,36 @@
 import { AuthContainer } from "../components/AuthContainer.jsx";
+<<<<<<< Updated upstream
 import { PasswordInput } from "../components/PasswordInput.jsx";
+=======
+import useForm from "../hooks/useForm.jsx";
+import { PasswordInput } from "../components/PasswordInput.jsx";
+
+>>>>>>> Stashed changes
 import "../styles/Pages.css";
 
 
 export function Registracija() {
+    const {
+        values,
+        errors,
+        handleChange,
+        handleSubmit,
+        handleBlur,
+    } = useForm({
+        initialFields: {
+            fullName: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
+    },
+    onSubmit: () => {
+      console.log("Valid form:", values);
+    }
+  });
+
     return (
         <AuthContainer title={"Registracija"}>
+<<<<<<< Updated upstream
             <form className="formPages">
                 <input 
                 type="text" 
@@ -33,6 +58,75 @@ export function Registracija() {
 
                 <a className="aPages">Da li želiš da postaneš MindfulNest ekspert?</a>
             </form>
+=======
+                <form onSubmit={handleSubmit} className={"formPages"}>
+                    {/* Full Name */}
+                    <div className="form-group">
+                        <input
+                        type="text"
+                        name="fullName"
+                        placeholder="Unesite ime i prezime"
+                        value={values.fullName || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={"inputPages"}
+                        />
+                        {errors.fullName && <p className="error">{errors.fullName}</p>}
+                    </div>
+
+                    {/* Email */}
+                    <div className="form-group">
+                        <input
+                        type="email"
+                        name="email"
+                        placeholder="Unesite email adresu"
+                        value={values.email || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={"inputPages"}
+                        />
+                        {errors.email && <p className="error">{errors.email}</p>}
+                    </div>
+
+                    {/* Password */}
+                    <div className="form-group">
+                        <PasswordInput
+                        name="password"
+                        placeholder="Unesite lozinku"
+                        value={values.password || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={"inputPages"}
+                        />
+                        {errors.password && (
+                        <ul className="error-list">
+                            {errors.password.map((msg, idx) => (
+                            <li key={idx} className="error">{msg}</li>
+                            ))}
+                        </ul>
+                        )}
+                    </div>
+
+                    {/* Confirm Password */}
+                    <div className="form-group">
+                        <PasswordInput
+                        name="confirmPassword"
+                        placeholder="Potvrdite lozinku"
+                        value={values.confirmPassword || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={"inputPages"}
+                        />
+                        {errors.confirmPassword && (
+                        <p className="error">{errors.confirmPassword}</p>
+                        )}
+                    </div>
+
+                    <button type="submit" className={"buttonPages"}>
+                        Registruj se
+                    </button>
+                </form>
+>>>>>>> Stashed changes
         </AuthContainer>
     )
 }

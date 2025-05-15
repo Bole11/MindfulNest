@@ -9,6 +9,7 @@ import { useState } from "react";
 export function Prijava() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+<<<<<<< Updated upstream
 
     function handleInputChange(event) {
         const {type , value} = event.target;
@@ -21,6 +22,9 @@ export function Prijava() {
         }
     }
 
+=======
+    
+>>>>>>> Stashed changes
     return (
         <AuthContainer title={"Prijava"}>
             <form className={"formPages"}>
@@ -28,13 +32,22 @@ export function Prijava() {
                 type="email" 
                 className={"inputPages"} 
                 placeholder="Unesite svoju e-mail adresu"
+<<<<<<< Updated upstream
                 onChange={handleInputChange}
                 />
+=======
+                />
+
+>>>>>>> Stashed changes
 
                 <PasswordInput 
                 placeholder="Unesite svoju lozinku" 
+<<<<<<< Updated upstream
                 className={"inputPages"}
                 onChange={handleInputChange}
+=======
+                className={styles.input}
+>>>>>>> Stashed changes
                 />
 
                 <button className={"buttonPages"}>Prijavi se</button>
