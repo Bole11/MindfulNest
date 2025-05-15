@@ -27,7 +27,7 @@ export function Prijava() {
 
         useEffect(() => {
             const allFieldsFilled =
-                values.email.trim() !== "" && values.password.trim() !== "";
+                (values.email || "").trim() !== "" && (values.password || "").trim() !== "";
 
             setFormIsValid(allFieldsFilled);
         }, [values]);
