@@ -10,6 +10,7 @@ export function Prijava() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     function handleInputChange(event) {
         const {type , value} = event.target;
@@ -25,6 +26,9 @@ export function Prijava() {
 =======
     
 >>>>>>> Stashed changes
+=======
+    
+>>>>>>> Stashed changes
     return (
         <AuthContainer title={"Prijava"}>
             <form className={"formPages"}>
@@ -33,8 +37,13 @@ export function Prijava() {
                 className={"inputPages"} 
                 placeholder="Unesite svoju e-mail adresu"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 onChange={handleInputChange}
                 />
+=======
+                />
+
+>>>>>>> Stashed changes
 =======
                 />
 
@@ -43,8 +52,12 @@ export function Prijava() {
                 <PasswordInput 
                 placeholder="Unesite svoju lozinku" 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 className={"inputPages"}
                 onChange={handleInputChange}
+=======
+                className={styles.input}
+>>>>>>> Stashed changes
 =======
                 className={styles.input}
 >>>>>>> Stashed changes

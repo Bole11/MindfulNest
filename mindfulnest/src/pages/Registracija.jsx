@@ -1,6 +1,12 @@
 import { AuthContainer } from "../components/AuthContainer.jsx";
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { PasswordInput } from "../components/PasswordInput.jsx";
+=======
+import useForm from "../hooks/useForm.jsx";
+import { PasswordInput } from "../components/PasswordInput.jsx";
+
+>>>>>>> Stashed changes
 =======
 import useForm from "../hooks/useForm.jsx";
 import { PasswordInput } from "../components/PasswordInput.jsx";
@@ -30,6 +36,7 @@ export function Registracija() {
 
     return (
         <AuthContainer title={"Registracija"}>
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             <form className="formPages">
                 <input 
@@ -74,6 +81,23 @@ export function Registracija() {
                         {errors.fullName && <p className="error">{errors.fullName}</p>}
                     </div>
 
+=======
+                <form onSubmit={handleSubmit} className={"formPages"}>
+                    {/* Full Name */}
+                    <div className="form-group">
+                        <input
+                        type="text"
+                        name="fullName"
+                        placeholder="Unesite ime i prezime"
+                        value={values.fullName || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={"inputPages"}
+                        />
+                        {errors.fullName && <p className="error">{errors.fullName}</p>}
+                    </div>
+
+>>>>>>> Stashed changes
                     {/* Email */}
                     <div className="form-group">
                         <input
@@ -126,6 +150,9 @@ export function Registracija() {
                         Registruj se
                     </button>
                 </form>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </AuthContainer>
     )
