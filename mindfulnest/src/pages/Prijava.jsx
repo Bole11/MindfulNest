@@ -1,69 +1,65 @@
 import { AuthContainer } from "../components/AuthContainer.jsx";
 import "../styles/Pages.css";
 import { PasswordInput } from "../components/PasswordInput.jsx";
+import useForm from "../hooks/useForm.jsx";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 export function Prijava() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+    const [formIsValid, setFormIsValid] = useState(false);
+        const {
+            values,
+            errors,
+            handleChange,
+            handleSubmit,
+            handleBlur,
+            } = useForm({
+            initialFields: {
+                email: "",
+                password: "",
+            },
+            onSubmit: () => {
+                console.log("Valid form:", values);
+            }
+            });
 
-    function handleInputChange(event) {
-        const {type , value} = event.target;
+        useEffect(() => {
+            const allFieldsFilled =
+                values.email.trim() !== "" && values.password.trim() !== "";
 
-        if (type === 'email') {
-            setEmail(value);
-        };
-        if (type === 'password' || type === 'text') {
-            setPassword(value);
-        }
-    }
+            setFormIsValid(allFieldsFilled);
+        }, [values]);
 
-=======
-    
->>>>>>> Stashed changes
-=======
-    
->>>>>>> Stashed changes
-    return (
+          return (
         <AuthContainer title={"Prijava"}>
-            <form className={"formPages"}>
+            <form className={"formPages"} onSubmit={handleSubmit}>
                 <input 
-                type="email" 
-                className={"inputPages"} 
-                placeholder="Unesite svoju e-mail adresu"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                onChange={handleInputChange}
+                    type="email" 
+                    name="email"
+                    value={values.email || ''}
+                    className={"inputPages"} 
+                    placeholder="Unesite svoju e-mail adresu"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
-=======
-                />
-
->>>>>>> Stashed changes
-=======
-                />
-
->>>>>>> Stashed changes
 
                 <PasswordInput 
-                placeholder="Unesite svoju lozinku" 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                className={"inputPages"}
-                onChange={handleInputChange}
-=======
-                className={styles.input}
->>>>>>> Stashed changes
-=======
-                className={styles.input}
->>>>>>> Stashed changes
+                    name="password"
+                    value={values.password || ''}
+                    placeholder="Unesite svoju lozinku" 
+                    className={"inputPages"}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                 />
 
-                <button className={"buttonPages"}>Prijavi se</button>
+                <button 
+                className={"buttonPages"}
+                type="submit"
+                disabled={!formIsValid}
+                >
+                    Prijavi se</button>
 
                 <Link to={"/zaboravljenalozinka"} className={"aPages"}>Zaboravljena lozinka</Link>
 
@@ -72,3 +68,5 @@ export function Prijava() {
         </AuthContainer>
     )
 }
+
+    

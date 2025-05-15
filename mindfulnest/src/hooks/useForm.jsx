@@ -5,7 +5,6 @@ export default function useForm(initialFields, onSubmit) {
     const [values, setValues] = useState(initialFields);
     const [errors, setErrors] = useState({});
 
-
     const validate = (fields) => {
         const newErrors = {};
 
@@ -57,6 +56,12 @@ export default function useForm(initialFields, onSubmit) {
         setValues(prev => ({
             ...prev,
             [name]: value
+        }));
+
+        const fieldValidation = validate({ ...values, [name]: value });
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [name]: fieldValidation[name],
         }));
     };
 

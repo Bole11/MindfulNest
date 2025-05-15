@@ -1,21 +1,13 @@
 import { AuthContainer } from "../components/AuthContainer.jsx";
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 import { PasswordInput } from "../components/PasswordInput.jsx";
-=======
 import useForm from "../hooks/useForm.jsx";
-import { PasswordInput } from "../components/PasswordInput.jsx";
+import { useEffect, useState } from "react";
 
->>>>>>> Stashed changes
-=======
-import useForm from "../hooks/useForm.jsx";
-import { PasswordInput } from "../components/PasswordInput.jsx";
-
->>>>>>> Stashed changes
 import "../styles/Pages.css";
 
 
 export function Registracija() {
+    const [formIsValid, setFormIsValid] = useState(false);
     const {
         values,
         errors,
@@ -34,38 +26,24 @@ export function Registracija() {
     }
   });
 
+    useEffect(() => {
+        const allFieldsFilled = 
+            values.fullName?.trim() && 
+            values.email?.trim() && 
+            values.password?.trim() && 
+            values.confirmPassword?.trim();
+
+        const noErrors = 
+            !errors.fullName && 
+            !errors.email && 
+            (!errors.password || errors.password.length === 0) && 
+            !errors.confirmPassword;
+
+        setFormIsValid(!!allFieldsFilled && noErrors);
+    }, [values, errors]);
+
     return (
         <AuthContainer title={"Registracija"}>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-            <form className="formPages">
-                <input 
-                type="text" 
-                placeholder="Ime i prezime" 
-                className="inputPages"
-                />
-
-                <input 
-                type="email" 
-                placeholder="Email adresa"
-                className="inputPages"
-                />
-
-                <PasswordInput 
-                placeholder={"Lozinka"} 
-                className="inputPages"
-                />
-
-                <PasswordInput 
-                placeholder={"Potvrdi lozinku"} 
-                className="inputPages"
-                />
-
-                <button className="buttonPages">Registruj se</button>
-
-                <a className="aPages">Da li želiš da postaneš MindfulNest ekspert?</a>
-            </form>
-=======
                 <form onSubmit={handleSubmit} className={"formPages"}>
                     {/* Full Name */}
                     <div className="form-group">
@@ -81,23 +59,6 @@ export function Registracija() {
                         {errors.fullName && <p className="error">{errors.fullName}</p>}
                     </div>
 
-=======
-                <form onSubmit={handleSubmit} className={"formPages"}>
-                    {/* Full Name */}
-                    <div className="form-group">
-                        <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Unesite ime i prezime"
-                        value={values.fullName || ""}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={"inputPages"}
-                        />
-                        {errors.fullName && <p className="error">{errors.fullName}</p>}
-                    </div>
-
->>>>>>> Stashed changes
                     {/* Email */}
                     <div className="form-group">
                         <input
@@ -146,14 +107,14 @@ export function Registracija() {
                         )}
                     </div>
 
-                    <button type="submit" className={"buttonPages"}>
+                    <button 
+                    type="submit" 
+                    className={"buttonPages"}
+                    disabled={!formIsValid}
+                    >
                         Registruj se
                     </button>
                 </form>
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-        </AuthContainer>
+            </AuthContainer>
     )
 }
