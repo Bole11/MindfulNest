@@ -25,7 +25,13 @@ html {
 	font-size: 62,5%; /* to set 10px as default */
 }
 
+.error-list {
+  align-self: flex-start;
+}
+
 .error {
   color: #F11325;
   font-size: 12px;
+  align-self: flex-start;
+  padding: 0 25px;
 }

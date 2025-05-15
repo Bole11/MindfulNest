@@ -46,66 +46,58 @@ export function Registracija() {
         <AuthContainer title={"Registracija"}>
                 <form onSubmit={handleSubmit} className={"formPages"}>
                     {/* Full Name */}
-                    <div className="form-group">
-                        <input
-                        type="text"
-                        name="fullName"
-                        placeholder="Unesite ime i prezime"
-                        value={values.fullName || ""}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={"inputPages"}
-                        />
-                        {errors.fullName && <p className="error">{errors.fullName}</p>}
-                    </div>
+                    <input
+                    type="text"
+                    name="fullName"
+                    placeholder="Unesite ime i prezime"
+                    value={values.fullName || ""}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={"inputPages"}
+                    />
+                    {errors.fullName && <p className="error">{errors.fullName}</p>}
 
                     {/* Email */}
-                    <div className="form-group">
-                        <input
-                        type="email"
-                        name="email"
-                        placeholder="Unesite email adresu"
-                        value={values.email || ""}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={"inputPages"}
-                        />
-                        {errors.email && <p className="error">{errors.email}</p>}
-                    </div>
+                    <input
+                    type="email"
+                    name="email"
+                    placeholder="Unesite email adresu"
+                    value={values.email || ""}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={"inputPages"}
+                    />
+                    {errors.email && <p className="error">{errors.email}</p>}
 
                     {/* Password */}
-                    <div className="form-group">
-                        <PasswordInput
-                        name="password"
-                        placeholder="Unesite lozinku"
-                        value={values.password || ""}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={"inputPages"}
-                        />
-                        {errors.password && (
-                        <ul className="error-list">
-                            {errors.password.map((msg, idx) => (
-                            <li key={idx} className="error">{msg}</li>
-                            ))}
-                        </ul>
-                        )}
-                    </div>
+                    <PasswordInput
+                    name="password"
+                    placeholder="Unesite lozinku"
+                    value={values.password || ""}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={"inputPages"}
+                    />
+                    {errors.password && (
+                    <ul className="error-list">
+                        {errors.password.map((msg, idx) => (
+                        <li key={idx} className="error">{msg}</li>
+                        ))}
+                    </ul>
+                    )}
 
                     {/* Confirm Password */}
-                    <div className="form-group">
-                        <PasswordInput
-                        name="confirmPassword"
-                        placeholder="Potvrdite lozinku"
-                        value={values.confirmPassword || ""}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        className={"inputPages"}
-                        />
-                        {errors.confirmPassword && (
-                        <p className="error">{errors.confirmPassword}</p>
-                        )}
-                    </div>
+                    <PasswordInput
+                    name="confirmPassword"
+                    placeholder="Potvrdite lozinku"
+                    value={values.confirmPassword || ""}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={"inputPages"}
+                    />
+                    {errors.confirmPassword && (
+                    <p className="error">{errors.confirmPassword}</p>
+                    )}
 
                     <button 
                     type="submit" 
