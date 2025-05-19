@@ -1,21 +1,21 @@
-import "../styles/AuthContainer.css"
+import "../styles/FormContainer.css"
 import logo from "../images/logo.png"
 import upperLeaf from "../images/upperLeaf.png"
 import lowerLeaf from "../images/lowerLeaf.png"
 import upperLines from "../images/upperLines.png"
 import lowerLines from "../images/lowerLines.png"
 
-export function AuthContainer({ title, children }) {
+export function FormContainer({ title, children }) {
     return (
-        <section className="auth-section">
-            <div className="auth-container">
+        <section className="form-section">
+            <div className="form-container">
                 <img src={upperLines} className="upperLines"/>
-                <div className="auth-logo">
-                    <img src={logo} alt="logo" className="logo"/>
+                <div className="form-header">
+                    <img src={logo} alt="logo" className="form-logo"/>
                 </div>
-                <div className="auth-content">
-                    <div className="auth-content-title">
-                        <h2 className="auth-title">{title}</h2>
+                <div className="form-content">
+                    <div className="form-content-title">
+                        <h2 className="form-title">{title}</h2>
                         <img src={upperLeaf} alt="leaf" className="upperLeaf"/>
                     </div>
                     {children}

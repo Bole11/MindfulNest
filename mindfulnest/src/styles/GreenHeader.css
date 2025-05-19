@@ -1,0 +1,35 @@
+.gh-content {
+    position: relative;
+    background: #84BE8F;
+    width: 375px;
+    height: 250px;
+    overflow: hidden;
+    display: grid;
+    justify-content: center ;
+}
+
+.headerLines {
+    position: absolute;
+    width: 370px;
+    left: 0;
+}
+
+.gh-status-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr;
+}
+
+
+.clock-wrapper, .arrow-wrapper {
+    padding: 10px 0 0 60px
+}
+
+.status-wrapper, .dots-wrapper {
+    justify-self: end;
+    padding: 10px 55px 0 0;
+}
+
+.status-wrapper img {
+    padding: 2px;
+}

@@ -1,9 +1,9 @@
-import { AuthContainer } from "../components/AuthContainer.jsx";
+import { FormContainer } from "../components/FormContainer.jsx";
 import { PasswordInput } from "../components/PasswordInput.jsx";
 import useForm from "../hooks/useForm.jsx";
 import { useEffect, useState } from "react";
 
-import "../styles/Pages.css";
+import "../styles/FormPages.css";
 
 
 export function Registracija() {
@@ -43,7 +43,7 @@ export function Registracija() {
     }, [values, errors]);
 
     return (
-        <AuthContainer title={"Registracija"}>
+        <FormContainer title={"Registracija"}>
                 <form onSubmit={handleSubmit} className={"formPages"}>
                     {/* Full Name */}
                     <input
@@ -107,6 +107,6 @@ export function Registracija() {
                         Registruj se
                     </button>
                 </form>
-            </AuthContainer>
+            </FormContainer>
     )
 }

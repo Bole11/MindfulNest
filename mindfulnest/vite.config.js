@@ -8,4 +8,7 @@ export default defineConfig({
     host: true,
     port: 4200,
   },
+  resolve: {
+    mainFields: [],
+  },
 })

@@ -1,5 +1,5 @@
-import { AuthContainer } from "../components/AuthContainer.jsx";
-import "../styles/Pages.css";
+import { FormContainer } from "../components/FormContainer.jsx";
+import "../styles/FormPages.css";
 import { PasswordInput } from "../components/PasswordInput.jsx";
 import useForm from "../hooks/useForm.jsx";
 
@@ -32,8 +32,8 @@ export function Prijava() {
             setFormIsValid(allFieldsFilled);
         }, [values]);
 
-          return (
-        <AuthContainer title={"Prijava"}>
+    return (
+        <FormContainer title={"Prijava"}>
             <form className={"formPages"} onSubmit={handleSubmit}>
                 <input 
                     type="email" 
@@ -65,7 +65,7 @@ export function Prijava() {
 
                 <span className={"spanPages"}>Nemaš nalog? <Link to={"/registracija"} className={"aPages"}>Registruj se</Link></span>
             </form>
-        </AuthContainer>
+        </FormContainer>
     )
 }
 

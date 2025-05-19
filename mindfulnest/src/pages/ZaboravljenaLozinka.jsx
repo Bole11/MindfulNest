@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { AuthContainer } from "../components/AuthContainer.jsx";
+import { FormContainer } from "../components/FormContainer.jsx";
 import useForm from "../hooks/useForm.jsx";
 
-import "../styles/Pages.css";
+import "../styles/FormPages.css";
 
 
 export function ZaboravljenaLozinka() {
@@ -34,7 +34,7 @@ export function ZaboravljenaLozinka() {
         }, [values, errors]);
 
     return (
-        <AuthContainer title={"Zaboravljena lozinka"}>
+        <FormContainer title={"Zaboravljena lozinka"}>
             <form className="formPages" onSubmit={handleSubmit}>
                 <p className="pPages">Unesite svoju email adresu i poslaćemo ti link za resetovanje lozinke.</p>
 
@@ -57,6 +57,6 @@ export function ZaboravljenaLozinka() {
 
                 <Link to={'/'} className="aPages">Nazad na prijavu</Link>
             </form>
-        </AuthContainer>
+        </FormContainer>
     )
 }
