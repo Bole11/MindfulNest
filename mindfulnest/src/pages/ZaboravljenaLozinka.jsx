@@ -29,10 +29,7 @@ export function ZaboravljenaLozinka() {
             }
         });
         const [step, setStep] = useState(1);
-<<<<<<< HEAD
         const navigate = useNavigate();
-=======
->>>>>>> d2cbe02820627134e5f5b3f9c9f415155c0d9388
 
         function handleNextStep() {
             setStep(prevStep => prevStep + 1);
@@ -137,7 +134,6 @@ export function ZaboravljenaLozinka() {
                     </button>
                 </form>
             )}
-<<<<<<< HEAD
 
             {step === 4 && 
             <div>
@@ -145,8 +141,6 @@ export function ZaboravljenaLozinka() {
                 <button className="buttonPages" onClick={() => navigate('/prijava')}>Prijavi se</button>
             </div>
             }
-=======
->>>>>>> d2cbe02820627134e5f5b3f9c9f415155c0d9388
         </FormContainer>
     )
 }
