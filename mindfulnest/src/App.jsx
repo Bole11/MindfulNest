@@ -5,6 +5,7 @@ import { Prijava } from "./pages/Prijava.jsx"
 import { Registracija } from "./pages/Registracija.jsx"
 import { ZaboravljenaLozinka } from "./pages/ZaboravljenaLozinka.jsx"
 import { ProfilEksperta } from "./pages/ProfilEksperta.jsx"
+import RegistracijaEkspert from "./pages/RegistracijaEkspert.jsx"
 
 function App() {
  
@@ -17,6 +18,7 @@ function App() {
           <Route path="/registracija" element={<Registracija/>}/>
           <Route path="/zaboravljenalozinka" element={<ZaboravljenaLozinka/>}/>
           <Route path="/profileksperta" element={<ProfilEksperta/>}/>
+          <Route path="/registracijaekspert" element={<RegistracijaEkspert/>}/>
         </Routes>
       </Router>
     </>

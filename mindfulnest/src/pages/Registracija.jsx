@@ -108,7 +108,7 @@ export function Registracija() {
                         Registruj se
                     </button>
 
-                    <Link className={"aPages"} to={'/'}>Da li želiš da postaneš MindfulNest ekspert?</Link>
+                    <Link className={"aPages"} to={'/registracijaekspert'}>Da li želiš da postaneš MindfulNest ekspert?</Link>
                 </form>
             </FormContainer>
     )
