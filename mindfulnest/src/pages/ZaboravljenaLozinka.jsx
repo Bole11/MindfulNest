@@ -129,6 +129,7 @@ export function ZaboravljenaLozinka() {
                     type="submit"
                     className="buttonPages"
                     disabled={!formIsValid}
+                    onClick={handleNextStep}
                     >
                     Sačuvaj novu lozinku
                     </button>
@@ -136,9 +137,9 @@ export function ZaboravljenaLozinka() {
             )}
 
             {step === 4 && 
-            <div>
+            <div className="step-confirmation">
                 <p className="pPages">Lozinka je uspešno promenjena</p>
-                <button className="buttonPages" onClick={() => navigate('/prijava')}>Prijavi se</button>
+                <button className="buttonPages" onClick={() => navigate('/')}>Prijavi se</button>
             </div>
             }
         </FormContainer>
