@@ -1,5 +1,4 @@
 import "../styles/GreenHeader.css";
-import React from "react";
 import Clock from 'react-live-clock';
 
 import headerLines from "../images/headerLines.png"

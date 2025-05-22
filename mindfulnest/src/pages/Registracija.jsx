@@ -1,5 +1,6 @@
 import { FormContainer } from "../components/FormContainer.jsx";
 import { PasswordInput } from "../components/PasswordInput.jsx";
+import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm.jsx";
 import { useEffect, useState } from "react";
 
@@ -106,6 +107,8 @@ export function Registracija() {
                     >
                         Registruj se
                     </button>
+
+                    <Link className={"aPages"} to={'/'}>Da li želiš da postaneš MindfulNest ekspert?</Link>
                 </form>
             </FormContainer>
     )

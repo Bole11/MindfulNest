@@ -10,8 +10,7 @@
 
 .headerLines {
     position: absolute;
-    width: 370px;
-    left: 0;
+    width: 100%;
 }
 
 .gh-status-bar {

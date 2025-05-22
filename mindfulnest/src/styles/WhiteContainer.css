@@ -1,0 +1,12 @@
+.white-container {
+    position: relative;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.containerLines {
+    position: absolute;
+    width: 100%;
+}

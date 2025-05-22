@@ -1,4 +1,4 @@
-.section {
+.sectionHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +48,46 @@
     width: 20px;
 }
 
-.main {
-    width: 375px;
-    
+.sectionContent {
+    color: #262628;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 1px 0px #0000000A;
+    box-shadow: 0px 0px 2px 0px #0000000F;
+    box-shadow: 0px 4px 8px 0px #0000000A;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.name {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.content {
+    width: 90%;
+    border-bottom: 1px solid #EFEFF0;
+    padding: 20px;
+    display: flex;
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contentImage {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 1px 0px #0000000A;
+    box-shadow: 0px 0px 2px 0px #0000000F;
+    box-shadow: 0px 4px 8px 0px #0000000A;
 }
