@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 export default function useForm(initialFields, onSubmit) {
     const [values, setValues] = useState(initialFields);
     const [errors, setErrors] = useState({});
@@ -48,6 +47,37 @@ export default function useForm(initialFields, onSubmit) {
             }
         };
 
+        if ("category" in fields) {
+            if (!fields.category.trim()) {
+                newErrors.category = "Kategorija je obavezna.";
+            }
+        };
+
+        ["bio", "join"].forEach((field) => {
+            if (field in fields) {
+            const value = fields[field].trim();
+
+            if (!value) {
+                newErrors[field] = "Polje je obavezno.";
+            } else if (value.length < 200) {
+                newErrors[field] = "Polje mora imati najmanje 200 karaktera.";
+            } else if (value.length > 500) {
+                newErrors[field] = "Polje ne može imati više od 500 karaktera.";
+            }
+            }
+        });
+
+        if ("phone" in fields) {
+            const phone = fields.phone.trim();
+
+            if (!phone) {
+                newErrors.phone = "Broj telefona je obavezan.";
+            } else if (!/^\+?\d{8,15}$/.test(phone)) {
+                newErrors.phone = "Unesite validan broj (min 8 cifara, može početi sa '+').";
+            }
+        };       
+
+        
         return newErrors;
     };
 

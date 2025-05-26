@@ -27,11 +27,11 @@ html {
 
 .error-list {
   align-self: flex-start;
+  list-style-type: none;
 }
 
 .error {
   color: #F11325;
   font-size: 12px;
   align-self: flex-start;
-  padding: 0 25px;
 }
