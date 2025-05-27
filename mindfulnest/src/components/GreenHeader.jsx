@@ -7,8 +7,18 @@ import service from "../images/service.png";
 import wifi from "../images/Wi-Fi.png";
 import dots from "../images/dots.png"
 import backArrow from "../images/backArrow.png"
+import unFavourite from "../images/favourite.png";
+import favourite from "../images/clickedFavourite.png"
+import about from "../images/about.png";
+import { useState } from "react";
 
-export function GreenHeader({ children }) {
+export function GreenHeader({ children, onToggleAbout }) {
+  const [heart, setHeart] = useState(false);
+
+  const handleHeartClick = () => {
+    setHeart(prev => !prev);
+    };
+
   return (
         <div className="gh-content">
           <div className="gh-status-bar">
@@ -24,7 +34,14 @@ export function GreenHeader({ children }) {
               <img src={backArrow} alt="arrowback" />
             </div>
             <div className="dots-wrapper">
-              <img src={dots} alt="dots" />
+              <button className="gh-button">
+                <button className="gh-button" onClick={onToggleAbout}>
+                  <img src={about} alt="dots" />
+                </button>
+              </button>
+              <button className="gh-button" onClick={handleHeartClick}>
+                <img src={heart ? favourite : unFavourite} alt="heart" />
+              </button>
             </div>
           </div>
           <img src={headerLines} className="headerLines"/>

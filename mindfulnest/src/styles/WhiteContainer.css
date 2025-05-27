@@ -1,9 +1,11 @@
 .white-container {
     position: relative;
+    z-index: 1;
     width: 375px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    box-shadow: 0px 4px 8px 0px #0000000A;
 }
 
 .containerLines {

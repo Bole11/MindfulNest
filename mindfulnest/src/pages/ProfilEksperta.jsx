@@ -1,5 +1,6 @@
 import { GreenHeader } from "../components/GreenHeader.jsx";
 import { WhiteContainer } from "../components/WhiteContainer.jsx";
+import { useState } from "react";
 
 import circle from "../images/circle.png"
 import star from "../images/star.png";
@@ -7,6 +8,11 @@ import leaf from "../images/lowerLeaf.png";
 import styles from "../styles/ProfilEksperta.module.css";
 
 export function ProfilEksperta() {
+  const [showSection, setShowSection] = useState(false);
+
+  const handleShowSection = () => {
+    setShowSection(prev => !prev);
+  };
 
   const types = {
     type1: {
@@ -34,7 +40,7 @@ export function ProfilEksperta() {
 
   return (
     <section className={styles.sectionHeader}>
-      <GreenHeader>
+      <GreenHeader onToggleAbout={handleShowSection}>
         <div className={styles.container}>
           <img src="" alt="profile" className={styles.profile}/>
           <h2 className={styles.h2}>Marko Markovic</h2>
@@ -67,13 +73,17 @@ export function ProfilEksperta() {
               <div className={styles.contentWrapper}>
                   <h3 className={styles.title}>{title}</h3>
                 <p className={styles.name}>{name}</p>
-                <div>
+                <div className={styles.ratingDiv}>
                   <img src={star} alt="" />
                   <p className={styles.rating}>{getAverageRating(rating)}</p>
                 </div>
               </div>
             </div>
           ))}
+        </section>
+
+        <section className={styles.contentAbout}>
+          
         </section>
       </WhiteContainer>
     </section>

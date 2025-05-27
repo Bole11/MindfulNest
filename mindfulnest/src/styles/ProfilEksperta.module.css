@@ -91,3 +91,9 @@
     box-shadow: 0px 0px 2px 0px #0000000F;
     box-shadow: 0px 4px 8px 0px #0000000A;
 }
+
+.ratingDiv {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

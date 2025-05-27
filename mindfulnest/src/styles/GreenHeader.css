@@ -11,12 +11,16 @@
 .headerLines {
     position: absolute;
     width: 100%;
+    pointer-events: none; 
+    z-index: 0;
 }
 
 .gh-status-bar {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.5fr 1.5fr;
+    z-index: 1; 
+    position: relative;
 }
 
 
@@ -31,4 +35,14 @@
 
 .status-wrapper img {
     padding: 2px;
+}
+
+.dots-wrapper img {
+    padding: 5px;
+ }
+
+.gh-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
