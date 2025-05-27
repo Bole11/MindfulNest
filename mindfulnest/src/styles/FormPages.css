@@ -31,6 +31,11 @@
     align-items: flex-start;
 }
 
+.middle {
+    align-items: center;
+    gap: 10px;
+}  
+
 .buttonPages {
     background: #84BE8F;
     border: none;

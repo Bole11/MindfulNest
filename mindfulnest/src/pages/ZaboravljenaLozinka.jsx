@@ -97,33 +97,37 @@ export function ZaboravljenaLozinka() {
 
             {step === 3 && (
                 <form className="formPages" onSubmit={handleSubmit}>
-                    <PasswordInput
-                    name="password"
-                    value={values.password || ''}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Unesite novu lozinku"
-                    className="inputPages"
-                    />
-                    {errors.password && (
-                    <ul className="error-list">
-                        {errors.password.map((msg, idx) => (
-                        <li key={idx} className="error">{msg}</li>
-                        ))}
-                    </ul>
-                    )}
+                    <div className="wrapperPages">
+                        <PasswordInput
+                        name="password"
+                        value={values.password || ''}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Unesite novu lozinku"
+                        className="inputPages inputLeft"
+                        />
+                        {errors.password && (
+                        <ul className="error-list">
+                            {errors.password.map((msg, idx) => (
+                            <li key={idx} className="error">{msg}</li>
+                            ))}
+                        </ul>
+                        )}
+                    </div>
 
-                    <PasswordInput
-                    name="confirmPassword"
-                    value={values.confirmPassword || ''}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    placeholder="Potvrdite novu lozinku"
-                    className="inputPages"
-                    />
-                    {errors.confirmPassword && (
-                    <p className="error">{errors.confirmPassword}</p>
-                    )}
+                    <div className="wrapperPages">
+                        <PasswordInput
+                        name="confirmPassword"
+                        value={values.confirmPassword || ''}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Potvrdite novu lozinku"
+                        className="inputPages inputLeft"
+                        />
+                        {errors.confirmPassword && (
+                        <p className="error">{errors.confirmPassword}</p>
+                        )}
+                    </div>
 
                     <button
                     type="submit"

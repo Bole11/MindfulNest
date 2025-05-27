@@ -2,6 +2,7 @@ import { FormContainer } from "../components/FormContainer.jsx";
 import { useState } from "react";
 import useForm from "../hooks/useForm.jsx";
 import useFormIsValid from "../hooks/useFormIsValid.jsx";
+import heartCheck from "../images/heartCheck.png";
 
 function RegistracijaEkspert() {
   const categories = [
@@ -33,6 +34,11 @@ function RegistracijaEkspert() {
   );
   const requiredFields = ["fullName", "email", "phone", "category", "bio", "join"];
   const formIsValid = useFormIsValid(values, errors, requiredFields);
+  const [step, setStep] = useState(1);
+
+  function handleNextStep() {
+    setStep(prevStep => prevStep + 1);
+  };
 
   const handlePhoneChange = (event) => {
     const cleaned = event.target.value.replace(/[^0-9+ ]/g, "");
@@ -40,8 +46,9 @@ function RegistracijaEkspert() {
   };
   
   return (
-    <FormContainer title={"Registracija"}>
-      <form className={"formPages"}>
+    <FormContainer title={step === 1 ? "Registracija" : ""}>
+      {step === 1 && (
+        <form className={"formPages"} onClick={handleSubmit}>
         <div className="wrapperPages">
           <input
             type="text"
@@ -133,9 +140,19 @@ function RegistracijaEkspert() {
           type="submit"
           className="buttonPages"
           disabled={!formIsValid}
-          onClick={handleSubmit}
+          onClick={handleNextStep}
           >Registruj se</button>
       </form>
+      )}
+
+      {step === 2 && (
+        <div className="wrapperPages middle">
+          <img src={heartCheck} alt="" />
+          <p>Hvala na prijavi!</p>
+          <p>Kontaktiraćemo vas uskoro.</p>
+          <button className="buttonPages">Početna strana</button>
+        </div>
+      )}
     </FormContainer>
 
   )
