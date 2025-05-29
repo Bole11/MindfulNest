@@ -73,7 +73,7 @@ export function ZaboravljenaLozinka() {
                 onBlur={handleBlur}
                 onChange={handleChange}
                 />
-                {errors.email && <p className="error">{errors.email}</p>}
+                {errors.email && <p className="error paddingRight">{errors.email}</p>}
 
                 <button 
                 type="button"

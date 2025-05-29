@@ -12,12 +12,7 @@ import favourite from "../images/clickedFavourite.png"
 import about from "../images/about.png";
 import { useState } from "react";
 
-export function GreenHeader({ children, onToggleAbout }) {
-  const [heart, setHeart] = useState(false);
-
-  const handleHeartClick = () => {
-    setHeart(prev => !prev);
-    };
+export function GreenHeader({ children, onToggleAbout, onHeartClick, heart }) {
 
   return (
         <div className="gh-content">
@@ -34,12 +29,10 @@ export function GreenHeader({ children, onToggleAbout }) {
               <img src={backArrow} alt="arrowback" />
             </div>
             <div className="dots-wrapper">
-              <button className="gh-button">
                 <button className="gh-button" onClick={onToggleAbout}>
                   <img src={about} alt="dots" />
-                </button>
               </button>
-              <button className="gh-button" onClick={handleHeartClick}>
+              <button className="gh-button" onClick={onHeartClick}>
                 <img src={heart ? favourite : unFavourite} alt="heart" />
               </button>
             </div>

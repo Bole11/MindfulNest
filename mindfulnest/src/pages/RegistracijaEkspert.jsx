@@ -4,7 +4,7 @@ import useForm from "../hooks/useForm.jsx";
 import useFormIsValid from "../hooks/useFormIsValid.jsx";
 import heartCheck from "../images/heartCheck.png";
 
-function RegistracijaEkspert() {
+export function RegistracijaEkspert() {
   const categories = [
     "Psihoterapija", 
     "Coaching i lični razvoj",
@@ -158,4 +158,3 @@ function RegistracijaEkspert() {
   )
 }
 
-export default RegistracijaEkspert

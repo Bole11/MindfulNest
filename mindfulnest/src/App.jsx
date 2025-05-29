@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
-import './App.css'
-import { Prijava } from "./pages/Prijava.jsx"
-import { Registracija } from "./pages/Registracija.jsx"
-import { ZaboravljenaLozinka } from "./pages/ZaboravljenaLozinka.jsx"
-import { ProfilEksperta } from "./pages/ProfilEksperta.jsx"
-import RegistracijaEkspert from "./pages/RegistracijaEkspert.jsx"
+import './App.css';
+import { Prijava } from "./pages/Prijava.jsx";
+import { Registracija } from "./pages/Registracija.jsx";
+import { ZaboravljenaLozinka } from "./pages/ZaboravljenaLozinka.jsx";
+import { ProfilEksperta } from "./pages/ProfilEksperta.jsx";
+import { RegistracijaEkspert } from "./pages/RegistracijaEkspert.jsx";
+import { Home } from "./pages/Home.jsx";
 
 function App() {
  
@@ -19,6 +20,7 @@ function App() {
           <Route path="/zaboravljenalozinka" element={<ZaboravljenaLozinka/>}/>
           <Route path="/profileksperta" element={<ProfilEksperta/>}/>
           <Route path="/registracijaekspert" element={<RegistracijaEkspert/>}/>
+          <Route path="/home" element={<Home/>}/>
         </Routes>
       </Router>
     </>
