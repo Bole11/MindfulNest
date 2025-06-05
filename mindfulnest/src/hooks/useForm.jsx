@@ -77,6 +77,10 @@ export default function useForm(initialFields, onSubmit) {
             }
         };       
 
+        if ("passwordLogin" in fields) {
+            
+        }
+
         
         return newErrors;
     };
@@ -96,14 +100,18 @@ export default function useForm(initialFields, onSubmit) {
     };
 
     const handleBlur = (event) => {
-        const { name } = event.target;
-        const fieldError = validate(values);
+        const { name, value } = event.target;
+
+        const singleField = { [name]: value };
+
+        const fieldError = validate(singleField);
 
         setErrors((prevErrors) => ({
             ...prevErrors,
-            [name]: fieldError[name],
+            [name]: fieldError[name], 
         }));
-  };
+    };
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -123,6 +131,6 @@ export default function useForm(initialFields, onSubmit) {
     errors,
     handleChange,
     handleSubmit,
-    handleBlur
+    handleBlur,
   }
 }

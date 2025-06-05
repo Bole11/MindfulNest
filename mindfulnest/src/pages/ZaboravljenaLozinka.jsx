@@ -64,16 +64,17 @@ export function ZaboravljenaLozinka() {
             {step === 1 && (
             <form className="formPages" onSubmit={handleSubmit}>
                 <p className="pPages">Unesite svoju email adresu i poslaćemo ti link za resetovanje lozinke.</p>
-
-                <input 
-                type="email" 
-                name="email"
-                placeholder="Unesite svoju email adresu"
-                className="inputPages"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                />
-                {errors.email && <p className="error paddingRight">{errors.email}</p>}
+                <div className="wrapperPages">    
+                    <input 
+                    type="email" 
+                    name="email"
+                    placeholder="Unesite svoju email adresu"
+                    className="inputPages"
+                    onBlur={handleBlur}
+                    onChange={handleChange}
+                    />
+                    {errors.email && <p className="error">{errors.email}</p>}
+                </div>
 
                 <button 
                 type="button"

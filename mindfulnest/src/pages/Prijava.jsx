@@ -2,6 +2,7 @@ import { FormContainer } from "../components/FormContainer.jsx";
 import "../styles/FormPages.css";
 import { PasswordInput } from "../components/PasswordInput.jsx";
 import useForm from "../hooks/useForm.jsx";
+import { login } from "../api/api.js";
 
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -12,6 +13,7 @@ export function Prijava() {
         const {
             values,
             errors,
+            setErrors,
             handleChange,
             handleSubmit,
             handleBlur,
@@ -20,9 +22,32 @@ export function Prijava() {
                 email: "",
                 password: "",
             },
-            onSubmit: () => {
-                console.log("Valid form:", values);
-            }
+            onSubmit: async () => {
+            try {
+                const response = await login({
+                    email: values.email,
+                    lozinka: values.password,
+                });
+
+                if (response.token) {
+                        localStorage.setItem("token", response.token);
+                        console.log("Login successful!");
+                        // navigate("/home"); 
+                    } else {
+                        setErrors({
+                            email: "Neispravan email ili lozinka.",
+                            password: "Neispravan email ili lozinka.",
+                        });    
+                    }
+                } catch (error) {
+                    const errorMessage = error.response?.data?.message || "Došlo je do greške prilikom prijave.";
+                    setErrors({
+                        email: errorMessage,
+                        password: errorMessage,
+                    });
+                }
+            },
+
             });
 
         useEffect(() => {
@@ -35,7 +60,8 @@ export function Prijava() {
     return (
         <FormContainer title={"Prijava"}>
             <form className={"formPages"} onSubmit={handleSubmit}>
-                <input 
+                <div className="wrapperPages">
+                    <input 
                     type="email" 
                     name="email"
                     value={values.email || ''}
@@ -43,16 +69,21 @@ export function Prijava() {
                     placeholder="Unesite svoju e-mail adresu"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                />
+                    />
+                    {errors.email && <span className="error">{errors.email}</span>}
+                </div>
 
-                <PasswordInput 
+                <div className="wrapperPages">
+                    <PasswordInput 
                     name="password"
                     value={values.password || ''}
                     placeholder="Unesite svoju lozinku" 
-                    className={"inputPages"}
+                    className="inputPages inputLeft"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                />
+                    />
+                    {errors.email && <span className="error">{errors.password}</span>}
+                </div>
 
                 <button 
                 className={"buttonPages"}
