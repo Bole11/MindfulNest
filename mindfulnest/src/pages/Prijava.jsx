@@ -10,45 +10,43 @@ import { useState, useEffect } from "react";
 
 export function Prijava() {
     const [formIsValid, setFormIsValid] = useState(false);
-        const {
+        const { 
             values,
             errors,
             setErrors,
             handleChange,
             handleSubmit,
             handleBlur,
-            } = useForm({
-            initialFields: {
+        } = useForm(
+            {
                 email: "",
                 password: "",
             },
-            onSubmit: async () => {
-            try {
-                const response = await login({
-                    email: values.email,
-                    lozinka: values.password,
-                });
+            async (values) => {
+                try {
+                    const { email, password } = values;
+                    console.log("Sending to backend:", { email, lozinka: password });
+                    const response = await login({ email, lozinka: password });
 
-                if (response.token) {
+                    if (response.token) {
                         localStorage.setItem("token", response.token);
-                        console.log("Login successful!");
-                        // navigate("/home"); 
+                        console.log('Login successful!');
+                        // navigate(/home);
                     } else {
                         setErrors({
                             email: "Neispravan email ili lozinka.",
                             password: "Neispravan email ili lozinka.",
-                        });    
+                        });
                     }
                 } catch (error) {
                     const errorMessage = error.response?.data?.message || "Došlo je do greške prilikom prijave.";
                     setErrors({
                         email: errorMessage,
                         password: errorMessage,
-                    });
+                    })
                 }
-            },
-
-            });
+            }
+        );
 
         useEffect(() => {
             const allFieldsFilled =
@@ -82,7 +80,7 @@ export function Prijava() {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     />
-                    {errors.email && <span className="error">{errors.password}</span>}
+                    {errors.password && <span className="error">{errors.password}</span>}
                 </div>
 
                 <button 

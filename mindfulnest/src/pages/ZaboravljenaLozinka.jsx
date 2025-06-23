@@ -3,37 +3,55 @@ import { useState, useEffect } from "react";
 import { FormContainer } from "../components/FormContainer.jsx";
 import useForm from "../hooks/useForm.jsx";
 import { PasswordInput } from "../components/PasswordInput";
+import { requestPasswordReset, resetPassword } from "../api/api.js";
 
 import "../styles/FormPages.css";
 
 
 export function ZaboravljenaLozinka() {
     const [formIsValid, setFormIsValid] = useState(false);
+    const [step, setStep] = useState(1);
+    const handleNextStep = () => setStep((prev) => prev + 1);
     const {
-            values,
-            errors,
-            handleChange,
-            handleSubmit,
-            handleBlur,
-            } = useForm({
-            initialFields: {
-                email: "",
-                password: "",
-                confirmPassword: ""
-            },
-            onSubmit: () => {
-                console.log("Valid form:", values);
-                if (step === 3) {
-                    setStep(4); 
-                };
-            }
-        });
-        const [step, setStep] = useState(1);
-        const navigate = useNavigate();
+        values,
+        errors,
+        handleChange,
+        handleSubmit,
+        handleBlur,
+        } = useForm(
+        {
+            email: "",
+            password: "",
+            confirmPassword: ""
+        },
+        async (formValues) => {
+            console.log("Form submitted at step:", step);
 
-        function handleNextStep() {
-            setStep(prevStep => prevStep + 1);
-        };
+            if (step === 1) {
+            await requestPasswordReset({ email: formValues.email });
+            handleNextStep();
+            }
+
+            if (step === 3) {
+            try {
+                const response = await resetPassword({
+                token: "test", // Replace with real token when ready
+                novaLozinka: formValues.password,
+                potvrdaLozinke: formValues.confirmPassword,
+                });
+
+                console.log("Reset successful:", response);
+                handleNextStep();
+            } catch (error) {
+                console.error("Reset failed:", error);
+                alert("Greška prilikom promene lozinke.");
+            }
+            }console.log("FORM VALUES:", formValues);
+
+        }
+    );
+
+        const navigate = useNavigate();
 
         useEffect(() => {
             if (step === 1) {
@@ -77,10 +95,9 @@ export function ZaboravljenaLozinka() {
                 </div>
 
                 <button 
-                type="button"
+                type="submit"
                 className="buttonPages"
                 disabled={!formIsValid}
-                onClick={handleNextStep}
                 >
                     Pošalji link
                 </button>
@@ -134,7 +151,6 @@ export function ZaboravljenaLozinka() {
                     type="submit"
                     className="buttonPages"
                     disabled={!formIsValid}
-                    onClick={handleNextStep}
                     >
                     Sačuvaj novu lozinku
                     </button>

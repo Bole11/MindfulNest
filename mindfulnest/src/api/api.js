@@ -18,7 +18,7 @@ api.interceptors.request.use((config) => {
 });
 // registracija
 export const register = async ({ imePrezime, email, lozinka, potvrdaLozinke }) => {
-    const result = await api.post("/korisnik/registracija", {
+    const result = await api.post("/korisnici/registracija", {
         imePrezime,
         email,
         lozinka,
@@ -46,7 +46,7 @@ export const requestPasswordReset = async ({ email }) => {
 };
 // forgot password step 2 - reset
 export const resetPassword = async ({ token, novaLozinka, potvrdaLozinke }) => {
-    const result = api.put("/korisnici/zaboravljena-lozinka", {
+    const result = await api.put("/korisnici/zaboravljena-lozinka", {
         token,
         novaLozinka,
         potvrdaLozinke,
@@ -55,7 +55,7 @@ export const resetPassword = async ({ token, novaLozinka, potvrdaLozinke }) => {
 };
 // update password
 export const updatePassword = async ({ staraLozinka, novaLozinka, potvrdaLozinke }) => {
-    const result = api.put("/promena-lozinke", {
+    const result = await api.put("/promena-lozinke", {
         staraLozinka,
         novaLozinka,
         potvrdaLozinke,
@@ -64,14 +64,14 @@ export const updatePassword = async ({ staraLozinka, novaLozinka, potvrdaLozinke
 };
 // update email
 export const updateEmail = async ({ email }) => {
-    const result = api.put("/korisnici/promena/email", {
+    const result = await api.put("/korisnici/promena/email", {
         email,
     });
     return result.data;
 };
 // update name
 export const updateName = async ({ novoIme }) => {
-    const result = api.put("/korisnici/promena/ime", {
+    const result = await api.put("/korisnici/promena/ime", {
         novoIme,
     });
     return result.data;

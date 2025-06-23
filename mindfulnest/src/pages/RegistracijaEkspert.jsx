@@ -48,7 +48,7 @@ export function RegistracijaEkspert() {
   return (
     <FormContainer title={step === 1 ? "Registracija" : ""}>
       {step === 1 && (
-        <form className={"formPages"} onClick={handleSubmit}>
+        <form className={"formPages"} onSubmit={handleSubmit}>
         <div className="wrapperPages">
           <input
             type="text"

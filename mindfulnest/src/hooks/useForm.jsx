@@ -42,10 +42,10 @@ export default function useForm(initialFields, onSubmit) {
         };
 
         if ("confirmPassword" in fields) {
-            if (fields.confirmPassword !== fields.password) {
-                newErrors.confirmPassword = "Lozinke se ne poklapaju.";
-            }
-        };
+            if ("password" in fields && fields.confirmPassword !== fields.password) {
+            newErrors.confirmPassword = "Lozinke se ne poklapaju";
+        }
+        };;
 
         if ("category" in fields) {
             if (!fields.category.trim()) {
@@ -129,6 +129,7 @@ export default function useForm(initialFields, onSubmit) {
   return {
     values,
     errors,
+    setErrors,
     handleChange,
     handleSubmit,
     handleBlur,
